@@ -1,12 +1,17 @@
 openapi: 3.0.0
 info:
   title: Pet Store Service
-  description: /** This is a pet store service.
+  description: This is a pet store service.
   version: 0.0.0
-tags: []
+tags:
+  - name: petttts
+  - name: planttts
 paths:
   /pets:
     get:
+      tags:
+        - petttts
+        - planttts
       operationId: Pets_list
       parameters: []
       responses:

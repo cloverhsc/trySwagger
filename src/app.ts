@@ -1,6 +1,6 @@
 import swaggerUi from 'swagger-ui-express';
-// import swaggerDocument from './swagger.json';
-import YAML from 'yamljs';
+import swaggerDocument from './swagger.json';
+// import YAML from 'yamljs';
 import express from 'express';
 import cors from 'cors';
 
@@ -11,14 +11,13 @@ const router = express.Router();
 
 // load swagger.yaml
 
-const swaggerDocument = YAML.load(__dirname + '/swagger.yml');
+// const swaggerDocument = YAML.load(__dirname + '/swagger.yml');
 console.log(swaggerDocument)
 
 
 // cors settings
 const corsOptions = {
   origin: '*',
-  optionsSuccessStatus: 200,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
 
@@ -29,7 +28,7 @@ const app = express();
 app.use(cors(corsOptions));
 
 // set router
-// app.use('/', router);
+app.use('/', router);
 
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
