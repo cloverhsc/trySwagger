@@ -33,7 +33,7 @@
                 "schema": {
                   "type": "object",
                   "items": {
-                    "$ref": "#/components/schemas/CDU Unit"
+                    "$ref": "#/components/schemas/CDUUnit"
                   },
                   "examples": {
                     "example1": {
@@ -57,7 +57,13 @@
   },
   "components": {
     "schemas": {
-      "CDU Unit": {
+      "CDUUnit": {
+        "required": [
+          "temperature",
+          "pressure",
+          "flow_rate"
+        ],
+        "type": "object",
         "properties": {
           "temperature": {
             "type": "string",
@@ -71,11 +77,6 @@
             "type": "string",
             "example": "LPM"
           }
-        },
-        "example": {
-          "temperature": "25C",
-          "pressure": "2.5MPa",
-          "flow_rate": "10LPM"
         }
       }
     }
